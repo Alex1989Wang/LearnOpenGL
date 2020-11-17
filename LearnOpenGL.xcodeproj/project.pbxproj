@@ -18,6 +18,8 @@
 		ACEF1FA025544308008E3F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEF1F9E25544308008E3F78 /* LaunchScreen.storyboard */; };
 		ACEF1FA325544308008E3F78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEF1FA225544308008E3F78 /* main.m */; };
 		ACEF1FB32554441C008E3F78 /* GLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEF1FB22554441C008E3F78 /* GLHomeViewController.m */; };
+		EEE3FC572563D76000C61935 /* GLTextureRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEE3FC552563D75F00C61935 /* GLTextureRenderer.cpp */; };
+		EEE3FC5C2563DBA000C61935 /* GLDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE3FC5B2563DBA000C61935 /* GLDisplayLink.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,11 @@
 		ACEF1FA225544308008E3F78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ACEF1FB12554441C008E3F78 /* GLHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLHomeViewController.h; sourceTree = "<group>"; };
 		ACEF1FB22554441C008E3F78 /* GLHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLHomeViewController.m; sourceTree = "<group>"; };
+		EEE3FC542563D69E00C61935 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		EEE3FC552563D75F00C61935 /* GLTextureRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLTextureRenderer.cpp; sourceTree = "<group>"; };
+		EEE3FC562563D76000C61935 /* GLTextureRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLTextureRenderer.hpp; sourceTree = "<group>"; };
+		EEE3FC5A2563DBA000C61935 /* GLDisplayLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLDisplayLink.h; sourceTree = "<group>"; };
+		EEE3FC5B2563DBA000C61935 /* GLDisplayLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLDisplayLink.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +82,8 @@
 				ACB2A55B2554533700125E0C /* GLTriangleRenderer.hpp */,
 				ACB2A5682556B7C400125E0C /* GLRectangleRenderer.cpp */,
 				ACB2A5692556B7C400125E0C /* GLRectangleRenderer.hpp */,
+				EEE3FC552563D75F00C61935 /* GLTextureRenderer.cpp */,
+				EEE3FC562563D76000C61935 /* GLTextureRenderer.hpp */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -82,6 +91,7 @@
 		ACEF1F8425544307008E3F78 = {
 			isa = PBXGroup;
 			children = (
+				EEE3FC532563D69E00C61935 /* libs */,
 				ACEF1F8F25544307008E3F78 /* LearnOpenGL */,
 				ACEF1F8E25544307008E3F78 /* Products */,
 			);
@@ -124,10 +134,20 @@
 			children = (
 				ACB2A5632556B4CC00125E0C /* GLEffectRenderViewController.h */,
 				ACB2A5642556B4CC00125E0C /* GLEffectRenderViewController.mm */,
+				EEE3FC5A2563DBA000C61935 /* GLDisplayLink.h */,
+				EEE3FC5B2563DBA000C61935 /* GLDisplayLink.m */,
 				ACEF1FB12554441C008E3F78 /* GLHomeViewController.h */,
 				ACEF1FB22554441C008E3F78 /* GLHomeViewController.m */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		EEE3FC532563D69E00C61935 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				EEE3FC542563D69E00C61935 /* stb_image.h */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +221,7 @@
 			files = (
 				ACB2A5652556B4CC00125E0C /* GLEffectRenderViewController.mm in Sources */,
 				ACB2A55125544ACD00125E0C /* GLCanvasController.mm in Sources */,
+				EEE3FC5C2563DBA000C61935 /* GLDisplayLink.m in Sources */,
 				ACB2A54C25544A5700125E0C /* GLCanvas.m in Sources */,
 				ACB2A56A2556B7C400125E0C /* GLRectangleRenderer.cpp in Sources */,
 				ACEF1F9225544307008E3F78 /* AppDelegate.m in Sources */,
@@ -208,6 +229,7 @@
 				ACEF1FB32554441C008E3F78 /* GLHomeViewController.m in Sources */,
 				ACB2A55C2554533700125E0C /* GLTriangleRenderer.cpp in Sources */,
 				ACB2A5572554528000125E0C /* GLRenderer.cpp in Sources */,
+				EEE3FC572563D76000C61935 /* GLTextureRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

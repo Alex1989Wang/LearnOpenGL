@@ -7,17 +7,18 @@
 
 #import "GLEffectRenderViewController.h"
 #import "GLCanvasController.h"
+#import "GLDisplayLink.h"
 #include "GLRenderer.hpp"
 #include "GLTriangleRenderer.hpp"
 #include "GLRectangleRenderer.hpp"
 
-@interface GLEffectRenderViewController ()
+@interface GLEffectRenderViewController ()<GLDisplayLinkDelegate>
 
 @property (nonatomic, strong) GLCanvasController *canvasController;
 
 @property (nonatomic) Renderer::GLRenderer *renderer;
 
-@property (nonatomic, strong) CADisplayLink *link;
+@property (nonatomic, strong) GLDisplayLink *link;
 
 @end
 
@@ -52,8 +53,9 @@
     [self makeRenderer];
     
     // render
-    self.link = [CADisplayLink displayLinkWithTarget:self selector:@selector(renderDisplay)];
-    [self.link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    self.link = [[GLDisplayLink alloc] init];
+    self.link.delegate = self;
+    [self.link start];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,11 +73,12 @@
     }
     if (self.renderer) {
         delete self.renderer;
+        self.renderer = nullptr;
     }
 }
 
-#pragma mark Actions
-- (void)renderDisplay {
+#pragma mark - GLDisplayLink
+- (void)displayLinkFired:(GLDisplayLink *)displayLink {
     [self.canvasController redrawCanvas];
 }
 
