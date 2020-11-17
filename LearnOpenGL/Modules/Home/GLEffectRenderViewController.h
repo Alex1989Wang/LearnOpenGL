@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger, GLLearnCases) {
     GLLearnCasesTriangle,
     GLLearnCasesRectangle,
+    GLLearnCasesTexure,
     
     /// the count of cases
     GLLearnCasesCount,

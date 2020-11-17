@@ -11,6 +11,7 @@
 #include "GLRenderer.hpp"
 #include "GLTriangleRenderer.hpp"
 #include "GLRectangleRenderer.hpp"
+#include "GLTextureRenderer.hpp"
 
 @interface GLEffectRenderViewController ()<GLDisplayLinkDelegate>
 
@@ -92,6 +93,14 @@
             }
             case GLLearnCasesRectangle: {
                 self.renderer = new Renderer::GLRectangleRenderer();
+                break;
+            }
+            case GLLearnCasesTexure: {
+                Renderer::GLTextureRenderer *p_texture_renderer = new Renderer::GLTextureRenderer();
+                NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"container" ofType:@"jpg"];
+                const char *cStringPath = [imagePath cStringUsingEncoding:NSUTF8StringEncoding];
+                p_texture_renderer->setTextureImagePath(cStringPath);
+                self.renderer = p_texture_renderer;
                 break;
             }
             default:

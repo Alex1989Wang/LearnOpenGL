@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC8EC27C25640787009F19FD /* container.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC8EC27B25640787009F19FD /* container.jpg */; };
 		ACB2A54C25544A5700125E0C /* GLCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB2A54B25544A5700125E0C /* GLCanvas.m */; };
 		ACB2A55125544ACD00125E0C /* GLCanvasController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACB2A55025544ACD00125E0C /* GLCanvasController.mm */; };
 		ACB2A5572554528000125E0C /* GLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACB2A5552554528000125E0C /* GLRenderer.cpp */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC8EC27B25640787009F19FD /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
 		ACB2A54A25544A5700125E0C /* GLCanvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLCanvas.h; sourceTree = "<group>"; };
 		ACB2A54B25544A5700125E0C /* GLCanvas.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLCanvas.m; sourceTree = "<group>"; };
 		ACB2A54F25544ACD00125E0C /* GLCanvasController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLCanvasController.h; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC8EC27A25640787009F19FD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				AC8EC27B25640787009F19FD /* container.jpg */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		ACB2A54925544A3F00125E0C /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 		ACEF1F8425544307008E3F78 = {
 			isa = PBXGroup;
 			children = (
+				AC8EC27A25640787009F19FD /* Assets */,
 				EEE3FC532563D69E00C61935 /* libs */,
 				ACEF1F8F25544307008E3F78 /* LearnOpenGL */,
 				ACEF1F8E25544307008E3F78 /* Products */,
@@ -208,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACEF1FA025544308008E3F78 /* LaunchScreen.storyboard in Resources */,
+				AC8EC27C25640787009F19FD /* container.jpg in Resources */,
 				ACEF1F9D25544308008E3F78 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

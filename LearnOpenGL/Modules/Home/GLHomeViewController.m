@@ -49,6 +49,10 @@
             return @"Rectangle";
             break;
         }
+        case GLLearnCasesTexure: {
+            return @"Texture";
+            break;
+        }
         default:
             break;
     }
