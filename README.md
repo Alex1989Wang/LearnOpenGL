@@ -3,7 +3,7 @@ A repo made to learn OpenGL basics.
 
 Graphics programming always has a very steep learning curve. The reason most likely lies in its elusive concepts and lacking efficient ways to debug when problems occur. 
 
-This repo and its demo cases show you some of the most important concenpts envolved in graphics programming step by step. Hopefully, this will shed some light on them.
+This repo and its demo cases show you some of the most important concenpts involved in graphics programming step by step. Hopefully, this will shed some light on them.
 
 ## OpenGL is DEPRECATED
 
