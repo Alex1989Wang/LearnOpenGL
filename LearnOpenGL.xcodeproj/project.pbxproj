@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AC8EC27C25640787009F19FD /* container.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC8EC27B25640787009F19FD /* container.jpg */; };
+		AC8EC2812566B694009F19FD /* GLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC8EC27F2566B694009F19FD /* GLShader.cpp */; };
+		AC8EC28E2566C4F7009F19FD /* Shaders.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC8EC28D2566C4F7009F19FD /* Shaders.bundle */; };
 		ACB2A54C25544A5700125E0C /* GLCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB2A54B25544A5700125E0C /* GLCanvas.m */; };
 		ACB2A55125544ACD00125E0C /* GLCanvasController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACB2A55025544ACD00125E0C /* GLCanvasController.mm */; };
 		ACB2A5572554528000125E0C /* GLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACB2A5552554528000125E0C /* GLRenderer.cpp */; };
@@ -25,6 +27,9 @@
 
 /* Begin PBXFileReference section */
 		AC8EC27B25640787009F19FD /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
+		AC8EC27F2566B694009F19FD /* GLShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLShader.cpp; sourceTree = "<group>"; };
+		AC8EC2802566B694009F19FD /* GLShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLShader.hpp; sourceTree = "<group>"; };
+		AC8EC28D2566C4F7009F19FD /* Shaders.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Shaders.bundle; sourceTree = "<group>"; };
 		ACB2A54A25544A5700125E0C /* GLCanvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLCanvas.h; sourceTree = "<group>"; };
 		ACB2A54B25544A5700125E0C /* GLCanvas.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLCanvas.m; sourceTree = "<group>"; };
 		ACB2A54F25544ACD00125E0C /* GLCanvasController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLCanvasController.h; sourceTree = "<group>"; };
@@ -70,6 +75,16 @@
 				AC8EC27B25640787009F19FD /* container.jpg */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		AC8EC27E2566B686009F19FD /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				AC8EC27F2566B694009F19FD /* GLShader.cpp */,
+				AC8EC2802566B694009F19FD /* GLShader.hpp */,
+				AC8EC28D2566C4F7009F19FD /* Shaders.bundle */,
+			);
+			path = Shader;
 			sourceTree = "<group>";
 		};
 		ACB2A54925544A3F00125E0C /* Canvas */ = {
@@ -133,6 +148,7 @@
 		ACEF1FAF255443EC008E3F78 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AC8EC27E2566B686009F19FD /* Shader */,
 				ACB2A5542554527000125E0C /* Renderer */,
 				ACB2A54925544A3F00125E0C /* Canvas */,
 				ACEF1FB0255443EC008E3F78 /* Home */,
@@ -220,6 +236,7 @@
 			files = (
 				ACEF1FA025544308008E3F78 /* LaunchScreen.storyboard in Resources */,
 				AC8EC27C25640787009F19FD /* container.jpg in Resources */,
+				AC8EC28E2566C4F7009F19FD /* Shaders.bundle in Resources */,
 				ACEF1F9D25544308008E3F78 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +255,7 @@
 				ACB2A56A2556B7C400125E0C /* GLRectangleRenderer.cpp in Sources */,
 				ACEF1F9225544307008E3F78 /* AppDelegate.m in Sources */,
 				ACEF1FA325544308008E3F78 /* main.m in Sources */,
+				AC8EC2812566B694009F19FD /* GLShader.cpp in Sources */,
 				ACEF1FB32554441C008E3F78 /* GLHomeViewController.m in Sources */,
 				ACB2A55C2554533700125E0C /* GLTriangleRenderer.cpp in Sources */,
 				ACB2A5572554528000125E0C /* GLRenderer.cpp in Sources */,

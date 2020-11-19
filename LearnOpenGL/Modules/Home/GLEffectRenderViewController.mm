@@ -96,7 +96,11 @@
                 break;
             }
             case GLLearnCasesTexure: {
-                Renderer::GLTextureRenderer *p_texture_renderer = new Renderer::GLTextureRenderer();
+                NSString *vsPath = [self shaderPathWithFileName:@"TextureRenderer_frag.glsl"];
+                NSString *fsPath = [self shaderPathWithFileName:@"TextureRenderer_vert.glsl"];
+                const char *cStrVSPath = [vsPath cStringUsingEncoding:NSUTF8StringEncoding];
+                const char *cStrFSPath = [fsPath cStringUsingEncoding:NSUTF8StringEncoding];
+                Renderer::GLTextureRenderer *p_texture_renderer = new Renderer::GLTextureRenderer(cStrVSPath, cStrFSPath);
                 NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"container" ofType:@"jpg"];
                 const char *cStringPath = [imagePath cStringUsingEncoding:NSUTF8StringEncoding];
                 p_texture_renderer->setTextureImagePath(cStringPath);
@@ -108,6 +112,11 @@
         }
     }
     self.canvasController.renderer = self.renderer;
+}
+
+- (NSString *)shaderPathWithFileName:(NSString *)name {
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"Shaders" ofType:@"bundle"];
+    return [NSString stringWithFormat:@"%@/%@", bundlePath, name];;
 }
 
 @end

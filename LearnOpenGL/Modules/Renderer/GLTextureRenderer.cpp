@@ -31,65 +31,8 @@ static GLuint indices[] = {
     1, 2, 3,
 };
 
-static const char *vertexShaderSource = "#version 300 es\n"
-"layout (location = 0) in vec3 aPos;\n"
-"layout (location = 1) in vec3 aColor;\n"
-"layout (location = 2) in vec2 aTexCoord;\n"
-"out vec3 ourColor;\n"
-"out vec2 TexCoord;\n"
-"void main()\n"
-"{\n"
-"gl_Position = vec4(aPos, 1.0);\n"
-"ourColor = aColor;\n"
-"TexCoord = aTexCoord;\n"
-"}\0";
-
-
-static const char *fragShaderSource = "#version 300 es\n"
-"precision highp float;\n"
-"out vec4 FragColor;\n"
-"in vec3 ourColor;\n"
-"in vec2 TexCoord;\n"
-"uniform sampler2D ourTexture;\n"
-"void main()\n"
-"{\n"
-"   FragColor = texture(ourTexture, TexCoord);\n"
-"}\0";
-
-GLTextureRenderer::GLTextureRenderer() {
-    // shader
-    unsigned int vsob;
-    vsob = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vsob, 1, &vertexShaderSource, NULL);
-    glCompileShader(vsob);
-    int success;
-    char info[1024];
-    glGetShaderiv(vsob, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(vsob, 1024, NULL, info);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << info << std::endl;
-    }
-    unsigned int fsob = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fsob, 1, &fragShaderSource, NULL);
-    glCompileShader(fsob);
-    glGetShaderiv(fsob, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(fsob, 1024, NULL, info);
-        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << info << std::endl;
-    }
-    // program
-    m_shaderProgram = glCreateProgram();
-    glAttachShader(m_shaderProgram, vsob);
-    glAttachShader(m_shaderProgram, fsob);
-    glLinkProgram(m_shaderProgram);
-    glGetProgramiv(m_shaderProgram, GL_LINK_STATUS, &success);
-    if(!success) {
-        glGetProgramInfoLog(m_shaderProgram, 1024, NULL, info);
-        std::cout << "ERROR::PROGRAM::LINK_FAILD\n" << info << std::endl;
-    }
-    glDeleteShader(vsob);
-    glDeleteShader(fsob);
-    
+GLTextureRenderer::GLTextureRenderer(const char *vsPath, const char *fsPath):
+m_shader(GLShader(vsPath, fsPath)) {
     // bind vertex array before any vertex configurations
     glGenVertexArrays(1, &m_vao);
     glBindVertexArray(m_vao);
@@ -142,7 +85,7 @@ void GLTextureRenderer::render() {
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     // use shader program
-    glUseProgram(m_shaderProgram);
+    m_shader.use();
     // use texture
     glBindTexture(GL_TEXTURE_2D, m_tid);
     // use vao

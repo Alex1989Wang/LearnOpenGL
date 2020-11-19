@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <string>
 #include "GLRenderer.hpp"
-
+#include "GLShader.hpp"
 
 namespace Renderer {
 
@@ -20,7 +20,7 @@ class GLTextureRenderer: public GLRenderer {
 public:
     
     /// constructor and deconstructor
-    GLTextureRenderer();
+    GLTextureRenderer(const char *vsPath, const char *fsPath);
     ~GLTextureRenderer();
     
     void setTextureImagePath(const char *imgPath);
@@ -28,12 +28,11 @@ public:
     virtual void render() override;
     
 private:
+    GLShader m_shader;
+    
     std::string m_img_path;
     
     GLuint m_tid { GL_INVALID_VALUE };
-    
-    /// shader program
-    GLuint m_shaderProgram { GL_INVALID_VALUE };
     
     /// vertex array object
     GLuint m_vbo { GL_INVALID_VALUE };
