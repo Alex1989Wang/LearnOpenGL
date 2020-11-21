@@ -10,8 +10,8 @@
 
 #include <stdio.h>
 #include <string>
-#include "GLRenderer.hpp"
 #include "GLShader.hpp"
+#include "GLRenderer.hpp"
 
 namespace Renderer {
 

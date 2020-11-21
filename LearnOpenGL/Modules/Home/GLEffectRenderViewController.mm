@@ -8,10 +8,10 @@
 #import "GLEffectRenderViewController.h"
 #import "GLCanvasController.h"
 #import "GLDisplayLink.h"
-#include "GLRenderer.hpp"
 #include "GLTriangleRenderer.hpp"
 #include "GLRectangleRenderer.hpp"
 #include "GLTextureRenderer.hpp"
+#include "GLRotationRenderer.hpp"
 
 @interface GLEffectRenderViewController ()<GLDisplayLinkDelegate>
 
@@ -96,11 +96,23 @@
                 break;
             }
             case GLLearnCasesTexure: {
-                NSString *vsPath = [self shaderPathWithFileName:@"TextureRenderer_frag.glsl"];
-                NSString *fsPath = [self shaderPathWithFileName:@"TextureRenderer_vert.glsl"];
+                NSString *vsPath = [self shaderPathWithFileName:@"TextureRenderer_vert.glsl"];
+                NSString *fsPath = [self shaderPathWithFileName:@"TextureRenderer_frag.glsl"];
                 const char *cStrVSPath = [vsPath cStringUsingEncoding:NSUTF8StringEncoding];
                 const char *cStrFSPath = [fsPath cStringUsingEncoding:NSUTF8StringEncoding];
                 Renderer::GLTextureRenderer *p_texture_renderer = new Renderer::GLTextureRenderer(cStrVSPath, cStrFSPath);
+                NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"container" ofType:@"jpg"];
+                const char *cStringPath = [imagePath cStringUsingEncoding:NSUTF8StringEncoding];
+                p_texture_renderer->setTextureImagePath(cStringPath);
+                self.renderer = p_texture_renderer;
+                break;
+            }
+            case GLLearnCasesRotation: {
+                NSString *vsPath = [self shaderPathWithFileName:@"RotationRenderer_vert.glsl"];
+                NSString *fsPath = [self shaderPathWithFileName:@"TextureRenderer_frag.glsl"];
+                const char *cStrVSPath = [vsPath cStringUsingEncoding:NSUTF8StringEncoding];
+                const char *cStrFSPath = [fsPath cStringUsingEncoding:NSUTF8StringEncoding];
+                Renderer::GLRotationRenderer *p_texture_renderer = new Renderer::GLRotationRenderer(cStrVSPath, cStrFSPath);
                 NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"container" ofType:@"jpg"];
                 const char *cStringPath = [imagePath cStringUsingEncoding:NSUTF8StringEncoding];
                 p_texture_renderer->setTextureImagePath(cStringPath);

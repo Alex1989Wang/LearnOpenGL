@@ -12,6 +12,7 @@
 #include <OpenGLES/ES3/gl.h>
 #include <iostream>
 #include <string>
+#include <glm/glm.hpp>
 
 namespace Renderer {
 
@@ -32,6 +33,11 @@ public:
     /// @param name uniform's name
     /// @param value the value of the uniform
     void setFloatUniform(const std::string &name, float value) const;
+    
+    /// set a mat4 of floats as an uniform
+    /// @param name uniform's name
+    /// @param transform value
+    void setMat4FloatUniform(const std::string &name, glm::mat4 &transform) const;
     
 private:
     

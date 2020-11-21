@@ -53,6 +53,10 @@
             return @"Texture";
             break;
         }
+        case GLLearnCasesRotation: {
+            return @"Transform Rotation";
+            break;
+        }
         default:
             break;
     }

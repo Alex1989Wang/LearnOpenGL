@@ -7,13 +7,11 @@
 
 #include "GLTextureRenderer.hpp"
 #include <iostream>
-
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "GLImage.hpp"
 
 namespace Renderer {
 
-float vertices[] = {
+static float vertices[] = {
     // positions          // colors           // texture coords
      0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
      0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
@@ -63,7 +61,8 @@ void GLTextureRenderer::setTextureImagePath(const char *imgPath) {
     m_img_path = path;
     
     int w, h, channels = 0;
-    unsigned char *data = stbi_load(imgPath, &w, &h, &channels, 0);
+    GLImage img = GLImage();
+    img.load(imgPath);
     if (m_tid != GL_INVALID_VALUE) {
         glDeleteTextures(1, &m_tid);
     }
@@ -74,9 +73,8 @@ void GLTextureRenderer::setTextureImagePath(const char *imgPath) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, img.getImageWidth(), img.getImageHeight(), 0, GL_RGB, GL_UNSIGNED_BYTE, img.getImageData());
     glGenerateMipmap(GL_TEXTURE_2D);
-    stbi_image_free(data);
 }
 
 void GLTextureRenderer::render() {

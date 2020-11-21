@@ -13,6 +13,7 @@ typedef NS_ENUM(NSUInteger, GLLearnCases) {
     GLLearnCasesTriangle,
     GLLearnCasesRectangle,
     GLLearnCasesTexure,
+    GLLearnCasesRotation,
     
     /// the count of cases
     GLLearnCasesCount,

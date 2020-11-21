@@ -8,6 +8,7 @@
 #include "GLShader.hpp"
 #include <fstream>
 #include <sstream>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Renderer {
 
@@ -94,6 +95,11 @@ GLuint GLShader::getShaderId() const {
 void GLShader::setFloatUniform(const std::string &name, float value) const {
     GLint locaton = glGetUniformLocation(m_shader_id, name.c_str());
     glUniform1f(locaton, value);
+}
+
+void GLShader::setMat4FloatUniform(const std::string &name, glm::mat4 &transform) const {
+    GLint location = glGetUniformLocation(m_shader_id, name.c_str());
+    glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(transform));
 }
 
 void GLShader::use() const {
